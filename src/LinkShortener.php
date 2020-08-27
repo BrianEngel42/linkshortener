@@ -5,7 +5,7 @@ $link_dir = "a";
 $redirect_dir = "redirectpage";
 
 $link_url = $domain . "/" . $link_dir . "/";
-$redirect_url = $domain . "/" .$redirect_dir;
+$redirect_url = $domain . "/" . $redirect_dir;
 
 function random($length = 10)
 {
@@ -19,30 +19,35 @@ function random($length = 10)
 }
 
 
-
-function getPath($id){
+function getPath($id)
+{
     global $link_dir;
     return getcwd() . "/" . $link_dir . "/" . $id;
 }
 
 function isIdFree($id)
 {
-    if(is_dir(getPath($id))){
+    if (is_dir(getPath($id))) {
         return FALSE;
-    }else{
+    } else {
         return TRUE;
     }
 }
 
 
-function generateContent($url){
+function generateContent($url)
+{
 
     global $redirect_url;
 
-
-
     //some html which will show an fullscreen iframe
-    $content = "<body style=\"margin:0px;padding:0px;overflow:hidden\">";
+    
+    $content = "<head>";
+    $content .= "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\"/>";
+    $content .= PHP_EOL;
+    $content .= "</head>";
+    $content .= PHP_EOL;
+    $content .= "<body style=\"margin:0px;padding:0px;overflow:hidden\">";
     $content .= PHP_EOL;
     $content .= "<iframe src=\"" . $redirect_url . "\" frameborder=\"0\" style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>";
     $content .= PHP_EOL;
@@ -81,27 +86,24 @@ function shortenLink($url)
 {
     global $link_url;
 
-    if(strpos($url, $link_url) !== false){
+    if (strpos($url, $link_url) !== false) {
 
         echo "Error: Link already shortened!";
 
-    }else{
+    } else {
 
         $id = getId();
         $content = generateContent($url);
         $path = getPath($id);
 
-        if (!mkdir($path , 0777, true)) {
+        if (!mkdir($path, 0777, true)) {
             die('Error while creating link');
         }
 
-        file_put_contents($path . "/index.php",$content , FILE_APPEND | LOCK_EX);
+        file_put_contents($path . "/index.php", $content, FILE_APPEND | LOCK_EX);
 
         echo $link_url . $id;
     }
-
-
-
 
 
 }

@@ -1,12 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 body {
-    font-family: "Roboto" !important;
-    text-align: center !important;
-
+    text-align: center;
+    font-family: "Roboto";
 }
 
+
+
 #headline {
-    font-size: 24px;
+    font-size: 36px;
     margin-top: 20px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    #headline {
+        font-size: 22px;
+        margin-top: 20px;
+    }
+
 }
