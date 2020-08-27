@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: "Roboto" !important;
+    text-align: center !important;
+
+}
+
+#headline {
+    font-size: 24px;
+    margin-top: 20px;
+}

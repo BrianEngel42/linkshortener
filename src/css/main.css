@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: rgb(55,55,55);
+    background-color: rgb(240,240,240);
+}
+
+*{
+    outline: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+input[type=text]{
+    border: 1px solid rgb(120,120,120);
+}
+
+input[type=button]{
+    border: 1px solid #036bfc;
+    background: linear-gradient(#03adfc,#03cafc);
+    color: white;
+    text-space: 5;
+    text-transform: uppercase;
+    font-family: "Work Sans";
+}
+
+input[type=button]:hover{
+    background: linear-gradient(#6b03fc,#03cafc);
+}
+
+
+#url {
+    margin: 0 auto;
+    padding: 10px;
+    display: block;
+    width: 500px;
+    font-family: "Roboto Mono";
+    font-size: 14px;
+}
+
+#shortenButton {
+    margin: 30px auto 0;
+    display: block;
+    width: 100px;
+    padding: 5px 10px;
+
+}
+
+
+@media (max-width:500px) {
+
+    #url {
+        width: calc(100% - 28px);
+    }
+
+    #shortenButton {
+        font-size: 16px;
+        padding: 8px 10px;
+    }
+
+}
