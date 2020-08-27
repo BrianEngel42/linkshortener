@@ -1,6 +1,6 @@
 <?php
 
-$domain = "http://192.168.188.39/short";
+$domain = "http://<YOUR DOMAIN>/<YOUR PATH>";
 $link_dir = "a";
 $redirect_dir = "redirectpage";
 
